@@ -39,7 +39,7 @@ function App() {
           ...data.notes,
         },
         theme: {
-          color: "#3399cc",
+          color: "#0544A8",
         },
       };
 
