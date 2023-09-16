@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan("dev"));
 
+app.use("/api/", require("./routes/helloWorld.js"));
 app.use("/api/razorpay", require("./routes/razorpay.js"));
 
 module.exports = app;

@@ -1,9 +1,21 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  const handleDonationClick = (e) => {
-    //
+  // Donation Button Click Handler
+  const handleDonationClick = async (e, amount) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post("/api/razorpay/generateOrder", {
+        amount,
+      });
+
+      console.log("Order Data: ", data);
+    } catch (error) {
+      alert("FAILED TO GENERATE ORDER");
+      console.error(error);
+    }
   };
 
   return (
@@ -22,9 +34,27 @@ function App() {
           Learn React
         </a>
  */}
-        <button onClick={handleDonationClick} className="donate-button">
-          Click to Donate $5
-        </button>
+        <div className="donate-button-section">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleDonationClick(e, 5);
+            }}
+            className="donate-button"
+          >
+            Click to Donate $5
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleDonationClick(e, 10);
+            }}
+            className="donate-button"
+          >
+            Click to Donate $10
+          </button>
+        </div>
       </header>
     </div>
   );
