@@ -62,7 +62,7 @@ function App() {
             }}
             className="donate-button"
           >
-            Click to Donate $5
+            Click to Donate ₹5
           </button>
 
           <button
@@ -72,7 +72,7 @@ function App() {
             }}
             className="donate-button"
           >
-            Click to Donate $10
+            Click to Donate ₹10
           </button>
         </div>
       </header>
