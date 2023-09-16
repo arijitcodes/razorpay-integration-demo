@@ -53,7 +53,13 @@ router.post("/paymentConfirmation", async (req, res) => {
   );
   console.log("Razorpay Payment Details: ", paymentDetails);
 
-  res.status(200).redirect("http://localhost:3000");
+  res
+    .status(200)
+    .redirect(
+      process.env.NODE_ENV === "production"
+        ? process.env.PROD_FRONTEND_URL
+        : process.env.DEV_FRONTEND_URL
+    );
 });
 
 module.exports = router;
